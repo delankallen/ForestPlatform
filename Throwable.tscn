@@ -1,0 +1,52 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/Items/bomb_explosion_3.png" type="Texture" id=1]
+[ext_resource path="res://assets/Items/bomb_explosion_4.png" type="Texture" id=2]
+[ext_resource path="res://assets/Items/bomb_explosion_6.png" type="Texture" id=3]
+[ext_resource path="res://assets/Items/bomb1_1 - Copy (2).png" type="Texture" id=4]
+[ext_resource path="res://assets/Items/bomb_explosion_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/Items/bomb1_1 - Copy (3).png" type="Texture" id=6]
+[ext_resource path="res://assets/Items/bomb1_1 - Copy.png" type="Texture" id=7]
+[ext_resource path="res://assets/Items/bomb_explosion_5.png" type="Texture" id=8]
+[ext_resource path="res://assets/Items/bomb_explosion_1.png" type="Texture" id=9]
+[ext_resource path="res://assets/Items/bomb_explosion_8.png" type="Texture" id=10]
+[ext_resource path="res://assets/Items/bomb1_1.png" type="Texture" id=11]
+[ext_resource path="res://assets/Items/bomb_explosion_7.png" type="Texture" id=12]
+[ext_resource path="res://Throwable.gd" type="Script" id=13]
+[ext_resource path="res://assets/sdfsd.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "in_air",
+"speed": 6.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 5 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 3 ), ExtResource( 12 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "contact",
+"speed": 8.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 15.5
+
+[node name="Throwable" type="KinematicBody2D"]
+collision_layer = 32
+collision_mask = 26
+script = ExtResource( 13 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "in_air"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0, -17.5 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 14 )
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

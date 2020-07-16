@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/UI/white/arrowRight.png" type="Texture" id=1]
+[ext_resource path="res://assets/UI/white/buttonA.png" type="Texture" id=2]
+[ext_resource path="res://assets/UI/white/arrowLeft.png" type="Texture" id=3]
+[ext_resource path="res://assets/UI/black/arrowRight.png" type="Texture" id=4]
+[ext_resource path="res://assets/UI/black/buttonA.png" type="Texture" id=5]
+[ext_resource path="res://assets/UI/black/arrowLeft.png" type="Texture" id=6]
+[ext_resource path="res://assets/UI/black/buttonX.png" type="Texture" id=7]
+[ext_resource path="res://assets/UI/white/buttonX.png" type="Texture" id=8]
+
+[node name="TouchControls" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LeftButton" type="TouchScreenButton" parent="."]
+position = Vector2( 5, 478 )
+scale = Vector2( 1.25, 1.25 )
+normal = ExtResource( 3 )
+pressed = ExtResource( 6 )
+action = "ui_left"
+visibility_mode = 1
+
+[node name="RightButton" type="TouchScreenButton" parent="."]
+position = Vector2( 150, 480 )
+scale = Vector2( 1.25, 1.25 )
+normal = ExtResource( 1 )
+pressed = ExtResource( 4 )
+action = "ui_right"
+visibility_mode = 1
+
+[node name="JumpButton" type="TouchScreenButton" parent="."]
+position = Vector2( 895, 474 )
+scale = Vector2( 1.25, 1.25 )
+normal = ExtResource( 2 )
+pressed = ExtResource( 5 )
+action = "ui_jump"
+visibility_mode = 1
+
+[node name="XButton" type="TouchScreenButton" parent="."]
+position = Vector2( 768, 474 )
+scale = Vector2( 1.25, 1.25 )
+normal = ExtResource( 8 )
+pressed = ExtResource( 7 )
+action = "ui_actionX"
+visibility_mode = 1

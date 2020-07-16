@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/Player/Mayan_Female/idle_3.png" type="Texture" id=1]
+[ext_resource path="res://assets/Player/Mayan_Female/idle_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/Player/Mayan_Female/idle_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/Player/Mayan_Female/run_3.png" type="Texture" id=4]
+[ext_resource path="res://assets/Player/Mayan_Female/run_2.png" type="Texture" id=5]
+[ext_resource path="res://assets/Player/Mayan_Female/run_4.png" type="Texture" id=6]
+[ext_resource path="res://assets/Player/Mayan_Female/run_1.png" type="Texture" id=7]
+[ext_resource path="res://Frank.gd" type="Script" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "jump",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 12.1782
+height = 18.9733
+
+[node name="Frank" type="KinematicBody2D"]
+position = Vector2( 358.672, 205.765 )
+scale = Vector2( 1.25, 1.25 )
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "run"
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 10.4881, 17.9797 )
+shape = SubResource( 2 )
